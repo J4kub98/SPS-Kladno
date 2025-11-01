@@ -5,6 +5,8 @@ E‑shop s kofeinovou vodou (frontend + lokální DB). Tento projekt lze spustit
 - statický vývojový server (pro čistý frontend)
 - Databáze: SQLite soubor `site.db` v kořeni projektu
 
+👉 Architektura, datové toky a ER diagram: viz `docs/architecture.md`.
+
 > Poznámka k OneDrive: doporučujeme mít složku označenou jako „Always keep on this device“, jinak mohou být soubory (např. `site.db`) v režimu cloud‑only a nepůjdou číst.
 
 ---
