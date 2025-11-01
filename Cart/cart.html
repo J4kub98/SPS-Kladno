@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Košík | Drive.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-bolt logo-icon"></i>
+                <span>DRIVE.</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Domů</a></li>
+                <li><a href="../Products/index.html" class="nav-link">Produkty</a></li>
+                <li><a href="../AboutUs/index.html" class="nav-link">O nás</a></li>
+                <li><a href="../index.html#section-newsletter" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="../Products/index.html" class="btn nav-cta">Nakupovat</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                    <div class="mini-cart">
+                        <h3>Váš košík</h3>
+                        <div class="mini-cart-items"></div>
+                        <div class="mini-cart-total">
+                            <span>Celkem:</span>
+                            <span id="miniCartTotal">0 Kč</span>
+                        </div>
+                        <a href="cart.html" class="btn mt-2">Zobrazit košík</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="cart-header">
+            <h1>Váš košík</h1>
+            <p class="subtitle">Zkontrolujte si položky před dokončením objednávky</p>
+        </div>
+
+        <div class="cart-content">
+            <div class="cart-items" id="cartItems">
+                <!-- Dynamicky naplněno JavaScriptem -->
+            </div>
+
+            <div class="cart-summary">
+                <h3>Souhrn objednávky</h3>
+                <div class="summary-row">
+                    <span>Mezisoučet</span>
+                    <span id="cartSubtotal">0 Kč</span>
+                </div>
+                <div class="summary-row">
+                    <span>Doprava</span>
+                    <span>Zdarma</span>
+                </div>
+                <div class="summary-total">
+                    <span>Celkem</span>
+                    <span id="cartTotal">0 Kč</span>
+                </div>
+                <button class="btn checkout-btn" onclick="proceedToCheckout()">
+                    Pokračovat k platbě
+                </button>
+                <div class="continue-shopping">
+                    <a href="../Products/index.html" class="btn-secondary">
+                        Pokračovat v nákupu
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="cart.js"></script>
+    <script>
+        function proceedToCheckout() {
+            if (cartManager.cart.length === 0) {
+                cartManager.showToast('Košík je prázdný');
+                return;
+            }
+            cartManager.showToast('Přesměrování na platební bránu...');
+        }
+    </script>
+</body>
+</html>

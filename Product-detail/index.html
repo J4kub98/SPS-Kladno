@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANS Mango 24×330ml | Prémiový energetický nápoj</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <!-- Hlavička stránky s navigací (zůstává jako sekundární prvek) -->
+    <header class="page-header">
+        <a href="../Products/index.html" class="back-button" id="backButton">
+            <i class="fas fa-arrow-left"></i>
+            Zpět na seznam produktů
+        </a>
+        <div class="cart-icon" id="cartIcon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count">0</span>
+            <div class="mini-cart">
+                <h3>Váš košík</h3>
+                <div class="mini-cart-items"></div>
+                <div class="mini-cart-total">
+                    <span>Celkem:</span>
+                    <span id="miniCartTotal">0 Kč</span>
+                </div>
+                <a href="../Cart/cart.html" class="btn mt-2">Zobrazit košík</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hlavní obsah stránky -->
+    <main class="container mango">
+        <!-- Levý blok - galerie a informace -->
+        <div class="gallery-section">
+            <!-- Galerie -->
+            <div class="gallery">
+                <div class="main-image">
+                    <img src="../Products/test.png" alt="CANS Mango plechovka" id="main-product-image">
+                </div>
+                <div class="thumbnail-grid">
+                    <div class="thumbnail active">
+                        <img src="../Products/test.png" alt="CANS Mango přední strana">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="../Products/test2.jpg" alt="CANS Mango v balení">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informace pod galerií -->
+            <div class="gallery-info">
+                <!-- USP Bar -->
+                <div class="usp-bar">
+                    <div class="usp-item">
+                        <div class="usp-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="usp-text">Doprava zdarma</div>
+                    </div>
+                    <div class="usp-item">
+                        <div class="usp-icon">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <div class="usp-text">30 dní na vrácení</div>
+                    </div>
+                    <div class="usp-item">
+                        <div class="usp-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="usp-text">Přírodní složení</div>
+                    </div>
+                </div>
+
+                <!-- Benefits -->
+                <div class="benefits-list">
+                    <div class="benefit-icon-text">
+                        <i class="fas fa-bolt"></i>
+                        <span>Přírodní kofein z guarany</span>
+                    </div>
+                    <div class="benefit-icon-text">
+                        <i class="fas fa-ban"></i>
+                        <span>Žádný přidaný cukr</span>
+                    </div>
+                    <div class="benefit-icon-text">
+                        <i class="fas fa-tint"></i>
+                        <span>Osvěžující a hydratující</span>
+                    </div>
+                </div>
+
+                <!-- Popis produktu -->
+                <div class="product-description">
+                    <p>Objevte dokonalou rovnováhu mezi energií a osvěžením s CANS Mango. Každá plechovka je plná přírodního kofeinu z guarany, vitamínů B a osvěžující chuti zralého manga bez přidaného cukru.</p>
+                    
+                    <div class="description-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Přírodní energie bez cukru</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-leaf"></i>
+                            <span>Vegan friendly</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-recycle"></i>
+                            <span>Recyklovatelná plechovka</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-tint"></i>
+                            <span>Dokonalá hydratace</span>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1rem;"><strong>Balení obsahuje 24 plechovek po 330 ml.</strong> Ideální pro domácnost, kancelář nebo sdílení s přáteli.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pravý blok - informace o produktu -->
+        <div class="product-info">
+            <div class="product-title">
+                <h1>CANS Mango</h1>
+                <div class="flavor">Osvěžující mango příchuť</div>
+                <div class="rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="rating-count">(127 recenzí)</span>
+                </div>
+            </div>
+
+            <!-- Výběr příchutí -->
+            <div class="flavor-selector">
+                <h4>Vyberte příchuť:</h4>
+                <div class="flavor-options">
+                    <div class="flavor-option mango active" onclick="selectFlavor('mango', this)">
+                        <img src="../Products/test.png" alt="Mango příchuť">
+                    </div>
+                    <div class="flavor-option citrus" onclick="selectFlavor('citrus', this)">
+                        <img src="../Products/test.png" alt="Citrus příchuť">
+                    </div>
+                    <div class="flavor-option berry" onclick="selectFlavor('berry', this)">
+                        <img src="../Products/test.png" alt="Lesní ovoce příchuť">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sekce s cenou a nákupními volbami -->
+            <div class="price-section">
+                <h3>Zvolte způsob nákupu:</h3>
+                <div class="purchase-options">
+                    <div class="purchase-option active" onclick="selectPurchaseOption('single', this)">
+                        <div class="option-info">
+                            <div class="option-title">Jednorázový nákup</div>
+                            <div class="option-description">Zakupte si balení bez závazků</div>
+                        </div>
+                        <div class="option-price">
+                            <div class="current-price">599 Kč</div>
+                            <div class="price-note">za 24 plechovek</div>
+                        </div>
+                    </div>
+                    <div class="purchase-option" onclick="selectPurchaseOption('subscription', this)">
+                        <div class="option-info">
+                            <div class="option-title">Předplatné</div>
+                            <div class="option-description">Pravidelné doručení se slevou</div>
+                            <div class="discount-badge">Ušetříte 20%</div>
+                        </div>
+                        <div class="option-price">
+                            <div class="current-price">479 Kč</div>
+                            <div class="price-note">měsíčně za 24 plechovek</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="btn-add-to-cart" id="addToCartBtn">
+                        <i class="fas fa-cart-plus"></i>
+                        Přidat do košíku
+                    </button>
+                    <div class="quantity-selector">
+                        <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                        <span class="quantity-value" id="quantity-value">1</span>
+                        <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Akordeon s detaily -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">Složení</div>
+                    <div class="accordion-content">
+                        <p>Perlivá voda, kyselina citrónová, přírodní aroma (mango), kofein, taurin, vitamíny (B3, B5, B6, B12), sukralóza, konzervant (sorbitol).</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">Výživové údaje</div>
+                    <div class="accordion-content">
+                        <p>Energetická hodnota: 5 kJ/1 kcal</p>
+                        <p>Tuky: 0 g</p>
+                        <p>Sacharidy: 0 g</p>
+                        <p>Cukry: 0 g</p>
+                        <p>Bílkoviny: 0 g</p>
+                        <p>Sůl: 0 g</p>
+                        <p>Kofein: 32 mg/100 ml</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">Detaily</div>
+                    <div class="accordion-content">
+                        <p>Baleno v ochranném kartónu. Skladujte v suchu a chraňte před přímým slunečním zářením. Minimální trvanlivost: 18 měsíců.</p>
+                        <p style="margin-top: 0.5rem;">Vyrobeno v České republice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Toast oznámení -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">Produkt byl přidán do košíku</span>
+    </div>
+
+    <script src="/Cart/cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

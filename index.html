@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nejlepší kofeinová voda pro energii a hydrataci. Různé příchutě, nízkokalorické, bez cukru.">
+    <meta name="keywords" content="kofeinová voda, energie, hydratace, nízkokalorické, sport, studenti">
+    <title>Kofeinová Voda | Energie + Hydratace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span>DRIVE.</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/index.html" class="nav-link">Domů</a></li>
+                <li><a href="/Products/index.html" class="nav-link">Produkty</a></li>
+                <li><a href="/AboutUs/index.html" class="nav-link">O nás</a></li>
+                <li><a href="/index.html#section-newsletter" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/Products/index.html" class="btn nav-cta">Nakupovat</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                    <div class="mini-cart">
+                        <h3>Váš košík</h3>
+                        <div class="mini-cart-items"></div>
+                        <div class="mini-cart-total">
+                            <span>Celkem:</span>
+                            <span id="miniCartTotal">0 Kč</span>
+                        </div>
+                        <a href="/Cart/cart.html" class="btn mt-2" data-page="cart">Zobrazit košík</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main id="fullpage-wrapper">
+        <section id="home" class="fullpage-section hero">
+            <div class="container hero-modern-flex">
+                <div class="hero-modern-text">
+                    <h1 class="hero-title">Energie a hydratace v každém doušku</h1>
+                    <p class="hero-subtitle">Objevte naši <b>kofeinovou vodu</b> s přírodními příchutěmi. Bez cukru, nízkokalorická, plná energie pro každý den.</p>
+                    <a href="/Products/index.html" class="btn hero-cta hero-modern-btn" data-page="catalog">Objevovat produkty</a>
+                </div>
+                <div class="hero-modern-image">
+                    <img src="Products/voda.png" alt="Kofeinová voda" />
+                </div>
+            </div>
+        </section>
+
+        <section class="fullpage-section section fresh-benefits" id="section-benefits">
+            <div class="container">
+                <div class="benefits-header">
+                    <h2 class="benefits-title">Proč je naše kofeinová voda pro vás ta pravá?</h2>
+                    <p class="benefits-subtitle">Přesvědčte se, že spojení energie a hydratace nikdy nebylo tak osvěžující a zdravé.</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card animate-on-scroll">
+                        <span class="benefit-number">01</span>
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="benefit-title">Čistá energie</h3>
+                        <p class="benefit-description">Žádný třas, žádné kalorie. Jen čistý, stabilní přísun energie z přírodních zdrojů, který vás udrží v chodu.</p>
+                    </div>
+                    <div class="benefit-card animate-on-scroll">
+                        <span class="benefit-number">02</span>
+                        <div class="benefit-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 class="benefit-title">Maximální hydratace</h3>
+                        <p class="benefit-description">Obohacená o elektrolyty pro rychlejší hydrataci a lepší regeneraci těla po sportovním výkonu a náročném dni.</p>
+                    </div>
+                    <div class="benefit-card animate-on-scroll">
+                        <span class="benefit-number">03</span>
+                        <div class="benefit-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3 class="benefit-title">Přírodní chuť</h3>
+                        <p class="benefit-description">Osvěžující ovocné příchutě bez umělých sladidel. Užijte si plnou chuť bez kompromisů a s nulou cukru.</p>
+                    </div>
+                    <div class="benefit-card animate-on-scroll">
+                        <span class="benefit-number">04</span>
+                        <div class="benefit-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="benefit-title">Zlepšení soustředění</h3>
+                        <p class="benefit-description">Kofein podporuje kognitivní funkce a pomáhá vám zůstat soustředění, ať už jste ve škole, v práci, nebo na cestách.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <section class="fullpage-section section best-sellers" id="section-best-sellers">
+  <div class="container">
+    <h2 class="text-center">Naše nejprodávanější produkty</h2>
+    <p class="text-center subtitle">Prozkoumejte naše nejoblíbenější příchutě, které si zákazníci nemohou vynachválit.</p>
+    
+    <div class="products-grid mt-2">
+      <!-- Produkt 1 -->
+      <div class="product-card">
+        <a href="#" class="product-link">
+          <div class="product-image">
+            <img src="Products/test.png" alt="CANS Citron" class="default-img">
+            <img src="Products/voda.png" alt="CANS Citron Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">CANS CITRON & LIMETKA — 24 × 330ml</h3>
+            <p class="product-price">799 Kč</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Produkt 2 -->
+      <div class="product-card">
+        <a href="#" class="product-link">
+          <div class="product-image">
+            <img src="Products/test.png" alt="CANS Lesní ovoce" class="default-img">
+            <img src="Products/voda.png" alt="CANS Lesní ovoce Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">CANS LESNÍ OVOCE — 24 × 330ml</h3>
+            <p class="product-price">759 Kč</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Produkt 3 -->
+      <div class="product-card">
+        <a href="#" class="product-link">
+          <div class="product-image">
+            <img src="Products/test.png" alt="CANS Máta" class="default-img">
+            <img src="Products/voda.png" alt="CANS Máta Hover" class="hover-img">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">CANS MÁTA — 24 × 330ml</h3>
+            <p class="product-price">749 Kč</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="#" class="btn btn-secondary" data-page="catalog">Zobrazit celou nabídku</a>
+    </div>
+  </div>
+</section>
+
+
+        <section class="fullpage-section section" id="section-lifestyle">
+            <div class="container">
+                <h2 class="text-center">Kofeinová voda ve vašem životě</h2>
+                <p class="text-center subtitle">Inspirace pro každý den. Kamkoliv jdete, berte nás s sebou.</p>
+                <div class="lifestyle-grid mt-3">
+                    <div class="lifestyle-item">
+                        <img src="pexels-cottonbro-7885592.jpg" alt="Hydratace během cvičení" class="lifestyle-image">
+                        <div class="lifestyle-overlay">
+                            <h3>Během cvičení</h3>
+                            <p>Pro maximální výkon a rychlou regeneraci.</p>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="pexels-cottonbro-7885592.jpg" alt="Soustředění při studiu" class="lifestyle-image">
+                        <div class="lifestyle-overlay">
+                            <h3>Při učení a práci</h3>
+                            <p>Pro lepší soustředění a jasnou mysl.</p>
+                        </div>
+                    </div>
+                    <div class="lifestyle-item">
+                        <img src="pexels-cottonbro-7885592.jpg" alt="Na cestách a túrách" class="lifestyle-image">
+                        <div class="lifestyle-overlay">
+                            <h3>Na cestách</h3>
+                            <p>Osvěžení a energie pro všechna vaše dobrodružství.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fullpage-section newsletter" id="section-newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Přihlaste se k odběru newsletteru</h2>
+                    <p>Získejte slevu 10% na první objednávku a exkluzivní nabídky přímo do vašeho e-mailu.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Váš email" required>
+                        <button type="submit" class="btn">Odebírat</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <section class="fullpage-section section">
+            <footer>
+                <div class="footer-container">
+                    <div class="footer-section footer-info">
+                        <a href="#" class="logo" data-page="home">
+                            <i class="fas fa-bolt logo-icon"></i>
+                            <span>Drive.</span>
+                        </a>
+                        <p>Osvěžující energie s nulovými kaloriemi. Vaše denní dávka hydratace a koncentrace.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Odkazy</h4>
+                        <ul>
+                            <li><a href="#" data-page="home">Domů</a></li>
+                            <li><a href="#" data-page="catalog">Produkty</a></li>
+                            <li><a href="#" data-page="home">O nás</a></li>
+                            <li><a href="#" data-page="home">Kontakt</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Sledujte nás</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Kontakt</h4>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> 123 Ulice Vody, Praha<br>
+                            <i class="fas fa-phone"></i> +420 123 456 789<br>
+                            <i class="fas fa-envelope"></i> info@kofeinovavoda.cz
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Drive. Všechna práva vyhrazena.</p>
+                </div>
+            </footer>
+        </section>
+        
+        <section class="page" id="catalog">
+            <div class="container">
+                <h1>Naše produkty</h1>
+                <div class="catalog-container">
+                    <div class="filters">
+                        <div class="filter-group">
+                            <h3 class="filter-title">Cena</h3>
+                            <input type="range" class="price-range" min="0" max="200" value="200" id="priceRange">
+                            <div class="price-values">
+                                <span>0 Kč</span>
+                                <span id="priceRangeValue">200 Kč</span>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3 class="filter-title">Příchuť</h3>
+                            <ul class="filter-options">
+                                <li class="filter-option">
+                                    <input type="checkbox" id="flavor-lemon" value="lemon" checked>
+                                    <label for="flavor-lemon">Citrón</label>
+                                </li>
+                                <li class="filter-option">
+                                    <input type="checkbox" id="flavor-berry" value="berry" checked>
+                                    <label for="flavor-berry">Lesní ovoce</label>
+                                </li>
+                                <li class="filter-option">
+                                    <input type="checkbox" id="flavor-mint" value="mint" checked>
+                                    <label for="flavor-mint">Máta</label>
+                                </li>
+                                <li class="filter-option">
+                                    <input type="checkbox" id="flavor-lime" value="lime" checked>
+                                    <label for="flavor-lime">Limetka</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-group">
+                            <h3 class="filter-title">Obsah kofeinu</h3>
+                            <ul class="filter-options">
+                                <li class="filter-option">
+                                    <input type="checkbox" id="caffeine-low" value="low" checked>
+                                    <label for="caffeine-low">Nízký (30mg)</label>
+                                </li>
+                                <li class="filter-option">
+                                    <input type="checkbox" id="caffeine-medium" value="medium" checked>
+                                    <label for="caffeine-medium">Střední (50mg)</label>
+                                </li>
+                                <li class="filter-option">
+                                    <input type="checkbox" id="caffeine-high" value="high" checked>
+                                    <label for="caffeine-high">Vysoký (100mg)</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="btn" id="applyFilters">Použít filtry</button>
+                    </div>
+                    <div class="products-container">
+                        <div class="products-grid" id="productsGrid">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="page" id="productDetail">
+            <div class="container">
+                <button class="btn btn-secondary" onclick="showPage('catalog')">Zpět na produkty</button>
+                <div class="product-detail mt-3">
+                    <div class="product-gallery">
+                        <div class="product-main-image" id="productImageDetail">
+                            </div>
+                        <div class="product-thumbnails">
+                            </div>
+                    </div>
+                    <div class="product-info-detail">
+                        <h1 id="productTitleDetail"></h1>
+                        <p id="productDescriptionDetail" class="product-description"></p>
+                        <div class="product-price-large" id="productPriceDetail"></div>
+                        <div class="product-option hidden" id="productVariantOption">
+                            <h3>Příchuť</h3>
+                            <div class="variant-options" id="variantOptions">
+                                </div>
+                        </div>
+                        <div class="product-actions">
+                            <div class="quantity-selector">
+                                <button class="quantity-btn" id="decrementBtn">-</button>
+                                <span id="quantityValue">1</span>
+                                <button class="quantity-btn" id="incrementBtn">+</button>
+                            </div>
+                            <button
+                                class="btn add-to-cart-detail"
+                                id="addToCartDetail"
+                                data-add-to-cart="true"
+                                data-id="drive-starter-pack"
+                                data-name="DRIVE Starter Pack"
+                                data-price="999"
+                                data-quantity="1"
+                            >
+                                Přidat do košíku
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="page" id="cart">
+            <div class="container">
+                <h1>Váš košík</h1>
+                <div class="cart-container">
+                    <div class="cart-items" id="cartItems">
+                        </div>
+                    <div class="cart-summary">
+                        <h3>Souhrn objednávky</h3>
+                        <div class="summary-row">
+                            <span>Mezisoučet</span>
+                            <span id="cartSubtotal">0 Kč</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Doprava</span>
+                            <span>Zdarma</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Celkem</span>
+                            <span id="cartTotal">0 Kč</span>
+                        </div>
+                        <a href="#" class="btn checkout-btn" data-page="checkout">Přejít k pokladně</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="page" id="checkout">
+            <div class="container">
+                <h1>Pokladna</h1>
+                <form class="checkout-form" id="checkoutForm">
+                    <div class="form-section">
+                        <h2>Kontaktní informace</h2>
+                        <div class="form-group">
+                            <label for="email">E-mailová adresa</label>
+                            <input type="email" id="email" class="form-input" required>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h2>Adresa doručení</h2>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">Jméno</label>
+                                <input type="text" id="firstName" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Příjmení</label>
+                                <input type="text" id="lastName" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Adresa</label>
+                            <input type="text" id="address" class="form-input" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Město</label>
+                                <input type="text" id="city" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="zipCode">PSČ</label>
+                                <input type="text" id="zipCode" class="form-input" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h2>Platební metoda</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method selected">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Karta</span>
+                            </div>
+                            <div class="payment-method">
+                                <i class="fas fa-paypal"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <h2>Potvrzení objednávky</h2>
+                        <div class="cart-summary">
+                            <div class=\"summary-total\">
+                                <span>Celkem</span>
+                                <span id=\"checkoutTotal\">0 Kč</span>
+                            </div>
+                        </div>
+                        <button class=\"btn place-order-btn\">Dokončit objednávku</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="Cart/cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

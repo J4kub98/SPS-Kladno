@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kofeinová Voda | Katalog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span>DRIVE.</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/index.html" class="nav-link">Domů</a></li>
+                <li><a href="/Products/index.html" class="nav-link">Produkty</a></li>
+                <li><a href="/AboutUs/index.html" class="nav-link">O nás</a></li>
+                <li><a href="/index.html#section-newsletter" class="nav-link">Kontakt</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="/Products/index.html" class="btn nav-cta">Nakupovat</a>
+                <div class="cart-icon" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                    <div class="mini-cart">
+                        <h3>Váš košík</h3>
+                        <div class="mini-cart-items"></div>
+                        <div class="mini-cart-total">
+                            <span>Celkem:</span>
+                            <span id="miniCartTotal">0 Kč</span>
+                        </div>
+                        <a href="/Cart/cart.html" class="btn mt-2" data-page="cart">Zobrazit košík</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <!-- MAIN -->
+    <main class="container main-content">
+        <!-- Subtle page intro inside main for better blend -->
+        <section class="page-intro" aria-labelledby="catalog-title">
+            <span class="page-intro__kicker">Katalog</span>
+            <h2 id="catalog-title" class="page-intro__title">Produkty DRIVE.</h2>
+            <p class="page-intro__sub">Bez cukru. Čisté složení. Každodenní soustředění bez výkyvů.</p>
+        </section>
+
+        <section class="section section--products">
+
+            <div class="products-grid">
+
+                <!-- Citron -->
+                <div class="product-card">
+                    <a href="../Product-detail/index.html" class="product-image-link"
+                       style="--secondary-image: url('voda.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="../Product-detail/index.html" class="product-title-link">
+                            <h3 class="product-title">CANS CITRON & LIMETKA — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">799,00 Kč</p>
+                    </div>
+                </div>
+
+                <!-- Jablko -->
+                <div class="product-card">
+                    <a href="product-detail.html?product=jablko" class="product-image-link"
+                       style="--secondary-image: url('voda.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="product-detail.html?product=jablko" class="product-title-link">
+                            <h3 class="product-title">CANS JABLKO & BEZINKA — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">799,00 Kč</p>
+                    </div>
+                </div>
+
+                <!-- Voda -->
+                <div class="product-card">
+                    <a href="product-detail.html?product=voda" class="product-image-link"
+                       style="--secondary-image: url('voda-hover.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="product-detail.html?product=voda" class="product-title-link">
+                            <h3 class="product-title">CANS JEMNĚ PERLIVÁ VODA — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">799,00 Kč</p>
+                    </div>
+                </div>
+
+                <!-- Mix -->
+                <div class="product-card">
+                    <a href="product-detail.html?product=mix" class="product-image-link"
+                       style="--secondary-image: url('mix-hover.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="product-detail.html?product=mix" class="product-title-link">
+                            <h3 class="product-title">CANS MIX BOX — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">849,00 Kč</p>
+                    </div>
+                </div>
+
+                <!-- Předplatné -->
+                <div class="product-card">
+                    <a href="product-detail.html?product=predplatne" class="product-image-link"
+                       style="--secondary-image: url('subscription-hover.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="product-detail.html?product=predplatne" class="product-title-link">
+                            <h3 class="product-title">MĚSÍČNÍ PŘEDPLATNÉ — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">749,00 Kč / měsíc</p>
+                    </div>
+                </div>
+
+                <!-- Broskev -->
+                <div class="product-card">
+                    <a href="product-detail.html?product=broskev" class="product-image-link"
+                       style="--secondary-image: url('broskev-hover.png')">
+                        <div class="product-image" style="background-image: url('test.png')"></div>
+                    </a>
+                    <div class="product-info">
+                        <a href="product-detail.html?product=broskev" class="product-title-link">
+                            <h3 class="product-title">CANS BROSKEV — 24 × 330ml</h3>
+                        </a>
+                        <p class="product-price">799,00 Kč</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Trust/USP band -->
+        <section class="usp-band section-block" aria-label="Důvody proč DRIVE.">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Proč DRIVE.</span>
+                    <h2 class="section-title">Co získáte</h2>
+                </div>
+                <div class="usp-grid">
+                <div class="usp-item feature-card">
+                    <div class="usp-icon"><i class="fas fa-truck"></i></div>
+                    <div class="usp-text">
+                        <h3>Doprava zdarma</h3>
+                        <p>Pro objednávky nad 1 200 Kč v rámci ČR.</p>
+                    </div>
+                </div>
+                <div class="usp-item feature-card">
+                    <div class="usp-icon"><i class="fas fa-undo"></i></div>
+                    <div class="usp-text">
+                        <h3>Snadné vrácení</h3>
+                        <p>30 dní na vrácení bez otázek.</p>
+                    </div>
+                </div>
+                <div class="usp-item feature-card">
+                    <div class="usp-icon"><i class="fas fa-leaf"></i></div>
+                    <div class="usp-text">
+                        <h3>Čisté složení</h3>
+                        <p>Bez cukru, bez umělých barviv, s přírodní chutí.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality section -->
+        <section class="quality section-block" aria-labelledby="quality-title">
+            <div class="container quality__inner">
+                <div class="section-heading">
+                    <span class="section-kicker">Kvalita</span>
+                    <h2 id="quality-title" class="section-title">Bez kompromisů</h2>
+                </div>
+                <ul class="quality-list">
+                    <li class="quality-item feature-card">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <p>Vyvážená dávka kofeinu pro soustředění — bez nervozity.</p>
+                    </li>
+                    <li class="quality-item feature-card">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <p>Jemně perlivé osvěžení a čistá chuť bez cukru.</p>
+                    </li>
+                    <li class="quality-item feature-card">
+                        <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                        <p>Transparentní složení a konzistentní chuť plechovku po plechovce.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Shipping and returns -->
+        <section class="shipping section-block" aria-labelledby="shipping-title">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">Logistika</span>
+                    <h2 id="shipping-title" class="section-title">Doprava a vrácení</h2>
+                </div>
+                <div class="shipping__grid">
+                    <div class="shipping-card feature-card">
+                        <h3>Doprava</h3>
+                        <p>Odesíláme do 24 hodin. U objednávek nad 1 200 Kč doprava zdarma. Spolupracujeme s ověřenými dopravci.</p>
+                    </div>
+                    <div class="shipping-card feature-card">
+                        <h3>Vrácení</h3>
+                        <p>Pokud nejste spokojeni, máte 30 dní na vrácení. Rychlý a férový proces, bez zbytečné administrativy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section footer-info">
+                <a href="#" class="logo" data-page="home">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    <span>Drive.</span>
+                </a>
+                <p>Osvěžující energie s nulovými kaloriemi. Vaše denní dávka hydratace a koncentrace.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Odkazy</h4>
+                <ul>
+                    <li><a href="#" data-page="home">Domů</a></li>
+                    <li><a href="#" data-page="catalog">Produkty</a></li>
+                    <li><a href="#" data-page="about">O nás</a></li>
+                    <li><a href="#" data-page="contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Sledujte nás</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i> 123 Ulice Vody, Praha<br>
+                    <i class="fas fa-phone"></i> +420 123 456 789<br>
+                    <i class="fas fa-envelope"></i> info@kofeinovavoda.cz
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Drive. Všechna práva vyhrazena.</p>
+        </div>
+    </footer>
+
+    <script src="../Cart/cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
