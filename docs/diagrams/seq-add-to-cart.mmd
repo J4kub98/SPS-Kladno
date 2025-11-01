@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant U as Uživatel
+  participant FE as Frontend
+  participant LS as localStorage
+
+  U->>FE: klikne "Přidat do košíku"
+  FE->>LS: čtení + zápis položky (id, qty)
+  FE-->>U: aktualizuje badge košíku a mini-cart

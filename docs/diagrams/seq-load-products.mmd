@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant U as Uživatel
+  participant FE as Frontend (script.js)
+  participant API as Backend API
+  participant DB as SQLite (site.db)
+
+  U->>FE: Otevře stránku / Domů / Produkty
+  FE->>API: GET /api/products
+  API->>DB: SELECT * FROM products
+  DB-->>API: seznam produktů
+  API-->>FE: 200 OK + JSON
+  FE-->>U: vykreslí grid produktů

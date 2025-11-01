@@ -1,0 +1,8 @@
+graph LR
+  U[Uživatel] --> FE[Frontend]
+  FE -->|GET /api/products| API[Backend API]
+  API -->|SQL| DB[(SQLite: site.db)]
+
+  FE -->|localStorage| LS[(localStorage: cart)]
+  FE -->|POST /api/order| API
+  API --> DB

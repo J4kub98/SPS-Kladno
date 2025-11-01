@@ -1,0 +1,18 @@
+erDiagram
+  PRODUCTS {
+    INT id PK
+    TEXT name
+    INT price_czk
+    TEXT image
+    TEXT flavor
+    INT in_stock
+  }
+  ORDERS {
+    INT id PK
+    TEXT created_at
+    INT total_czk
+    INT product_id FK
+    INT quantity
+  }
+
+  PRODUCTS ||--o{ ORDERS : contains

@@ -1,0 +1,12 @@
+sequenceDiagram
+  participant U as Uživatel
+  participant FE as Frontend
+  participant API as Backend
+  participant DB as SQLite
+
+  U->>FE: odešle checkout formulář
+  FE->>API: POST /api/order { položky, kontakty }
+  API->>DB: INSERT INTO orders, order_items
+  DB-->>API: OK (ids)
+  API-->>FE: 201 Created { orderId }
+  FE-->>U: potvrzení / redirect na "Děkujeme"

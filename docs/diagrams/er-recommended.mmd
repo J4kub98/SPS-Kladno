@@ -1,0 +1,29 @@
+erDiagram
+  PRODUCTS {
+    INT id PK
+    TEXT name
+    INT price_czk
+    TEXT image
+    TEXT flavor
+    INT in_stock
+  }
+  ORDERS {
+    INT id PK
+    TEXT created_at
+    INT total_czk
+    TEXT status
+    TEXT customer_name
+    TEXT customer_email
+    TEXT address
+  }
+  ORDER_ITEMS {
+    INT id PK
+    INT order_id FK
+    INT product_id FK
+    INT quantity
+    INT unit_price_czk
+    INT line_total_czk
+  }
+
+  PRODUCTS ||--o{ ORDER_ITEMS : is_ordered_in
+  ORDERS ||--o{ ORDER_ITEMS : has
