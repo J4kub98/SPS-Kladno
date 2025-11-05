@@ -491,10 +491,8 @@ body.mini-cart-open {
 /* Full-page scrolling */
 #fullpage-wrapper {
     height: 100vh;
-    /* Odstranění vnitřního scrollbaru – necháme scrollovat jen celé okno */
-    overflow: visible;
-    /* Vypnutí scroll-snapu, aby nevznikaly další "slidery" uvnitř stránky */
-    scroll-snap-type: none;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
 
@@ -547,36 +545,7 @@ body.mini-cart-open {
 
 /* Nový dvousloupcový hero layout */
 
-/* Minimalní fix pro úvodní sekci na homepage – BEZ změny velikostí textů/obsahu */
-.hero-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-}
-
-.hero-left,
-.hero-right { flex: 1 1 0; min-width: 0; }
-
-.hero-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.hero-card { background: none; border: 0; box-shadow: none; }
-
-.hero-bottle {
-    max-width: 420px; /* pouze maximální šířka, skutečnou velikost neměníme */
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-@media (max-width: 900px) {
-    .hero-inner { flex-direction: column; gap: 2rem; text-align: center; }
-    .hero-right { justify-content: center; }
-}
+/* (vráceno) bez speciálních hero layout pravidel */
 
 
 /* HERO sekce – ultra moderní, čistý styl */
