@@ -983,3 +983,16 @@ p {
         margin-top: 4rem; /* Ještě menší mezera na mobilech */
     }
 }
+
+/* Velké obrazovky (Full HD a více) */
+@media (min-width: 1400px) {
+    .page-header { max-width: 1320px; }
+    .container { max-width: 1320px; }
+    .main-image img { max-height: 740px; }
+}
+
+@media (min-width: 1800px) {
+    .page-header { max-width: 1440px; }
+    .container { max-width: 1440px; }
+    .main-image img { max-height: 820px; }
+}

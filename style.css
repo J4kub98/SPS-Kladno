@@ -1707,3 +1707,27 @@ footer {
     align-items: center;
     text-align: center;
 }
+
+/* Rozšíření pro velké obrazovky (Full HD a více) */
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+    .navbar { max-width: 1320px; }
+    .footer-container { max-width: 1320px; }
+
+    /* Větší hero pro 1080p */
+    .hero-title { font-size: clamp(3rem, 1.8vw + 2.2rem, 4.25rem); }
+    .hero-subtitle { font-size: 1.35rem; max-width: 760px; }
+    .hero-modern-image img { max-width: 520px; }
+
+    /* Lehké roztažení gridů */
+    .products-grid { gap: 2.25rem; }
+    .benefits-grid { gap: 2.25rem; }
+    .lifestyle-grid { gap: 2rem; }
+}
+
+@media (min-width: 1800px) {
+    .container { max-width: 1440px; }
+    .navbar { max-width: 1440px; }
+    .footer-container { max-width: 1440px; }
+    .hero-modern-image img { max-width: 620px; }
+}

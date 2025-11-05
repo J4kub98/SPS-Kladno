@@ -734,3 +734,21 @@ footer {
     .section-header h2 { font-size: 1.8rem; }
     .section-header p { font-size: 1rem; }
 }
+
+/* Velké obrazovky (Full HD a více) */
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+    .navbar { max-width: 1320px; }
+    .footer-container { max-width: 1320px; }
+
+    .products-grid { gap: 2.5rem; }
+    .usp-grid { grid-template-columns: repeat(4, 320px); }
+    .quality-list { grid-template-columns: repeat(4, 320px); }
+    .shipping__grid { grid-template-columns: repeat(3, 340px); }
+}
+
+@media (min-width: 1800px) {
+    .container { max-width: 1440px; }
+    .navbar { max-width: 1440px; }
+    .footer-container { max-width: 1440px; }
+}
