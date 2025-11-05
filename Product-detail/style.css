@@ -45,7 +45,7 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    overflow-y: scroll; /* Reserve scrollbar to avoid navbar shift between pages */
+    overflow-y: auto; /* Jediný scrollbar na stránce */
 }
 html { scrollbar-gutter: stable both-edges; }
 
@@ -982,17 +982,4 @@ p {
     .price-section {
         margin-top: 4rem; /* Ještě menší mezera na mobilech */
     }
-}
-
-/* Velké obrazovky (Full HD a více) */
-@media (min-width: 1400px) {
-    .page-header { max-width: 1320px; }
-    .container { max-width: 1320px; }
-    .main-image img { max-height: 740px; }
-}
-
-@media (min-width: 1800px) {
-    .page-header { max-width: 1440px; }
-    .container { max-width: 1440px; }
-    .main-image img { max-height: 820px; }
 }

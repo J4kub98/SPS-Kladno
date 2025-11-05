@@ -42,7 +42,8 @@ body, html {
     line-height: 1.6;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll; /* Reserve vertical scrollbar to prevent layout shift between pages */
+    /* Jediný scrollbar na stránce; rezervaci šířky řeší html{scrollbar-gutter} */
+    overflow-y: auto;
     font-weight: 300;
     scroll-behavior: smooth;
 }
@@ -88,7 +89,7 @@ button, .btn {
     background: var(--primary-light);
     color: var(--text-primary);
     padding: 12px 24px;
-    border-radius: var(--radius);
+    border-radius: 50px; /* unify pill radius with home */
     font-weight: bold;
     transition: all 0.4s ease;
     font-size: 1rem;
@@ -118,11 +119,39 @@ button:hover, .btn:hover {
     transform: translateY(-2px);
 }
 
+/* Unified primary/outline buttons matching home */
+.btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.35);
+}
+.btn-primary:hover {
+    background: #1c3347;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(39, 68, 92, 0.45);
+}
+.btn-outline {
+    background: rgba(255, 255, 255, 0.88);
+    border: 2px solid rgba(39, 68, 92, 0.45);
+    color: var(--text-primary);
+    box-shadow: 0 10px 28px rgba(39, 68, 92, 0.15);
+}
+.btn-outline:hover {
+    background: #ffffff;
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.2);
+}
+
 .container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+    padding-top: 3rem;
 }
 
 .section {
@@ -350,9 +379,12 @@ body.mini-cart-open {
 /* Catalog hero */
 /* Subtle page intro */
 .page-intro {
-    padding: 0 0 1.25rem;
-    border-bottom: 1px solid rgba(169, 236, 255, 0.25);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: linear-gradient(to bottom, #e8f4fc, #d5e9f7);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+    text-align: center;
 }
 
 .page-intro__kicker {
@@ -364,8 +396,8 @@ body.mini-cart-open {
 }
 
 .page-intro__title {
-    font-size: clamp(1.4rem, 2.8vw, 1.8rem);
-    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2rem);
+    font-weight: 700;
     margin: 0.25rem 0 0.4rem;
 }
 
@@ -375,14 +407,14 @@ body.mini-cart-open {
 }
 
 /* Products section spacing */
-.section--products { padding-top: 2rem; }
+.section--products { padding-top: 2rem; padding-bottom: 4rem; }
 
 /* Unified section block and headings */
 .section-block { background: #fff; }
 .section-heading {
     display: grid;
     gap: 0.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 .section-kicker {
     text-transform: uppercase;
@@ -397,25 +429,66 @@ body.mini-cart-open {
 }
 .section-heading + * { margin-top: 0.25rem; }
 
+/* ===== FAQ (Accordion) ===== */
+.faq { background: #fff; padding-top: clamp(3.5rem, 7vw, 5rem); padding-bottom: clamp(3.5rem, 8vw, 5rem); margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.faq__title { text-align: center; font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.75rem; }
+.faq__subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 2.25rem; }
+
+.faq__list { max-width: 980px; margin: 0 auto; display: grid; gap: 1rem; padding-top: 2rem; }
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    overflow: hidden;
+}
+.faq-item summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    cursor: pointer;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item .faq-question { font-weight: 700; color: var(--text-primary); }
+.faq-item i { transition: transform 0.25s ease; color: var(--text-primary); }
+.faq-item[open] i { transform: rotate(180deg); }
+/* Smooth open/close without page jump */
+.faq-answer {
+    height: 0;
+    overflow: hidden;
+    padding: 0 1.25rem; /* bottom padding animates in when opened */
+    color: var(--text-secondary);
+    opacity: 0;
+    transition: height 0.35s ease, padding 0.35s ease, opacity 0.25s ease;
+}
+
 /* Shared feature card base */
 .feature-card {
     background: #ffffff;
-    border: 1px solid rgba(39, 68, 92, 0.16);
-    border-radius: 14px;
-    padding: 1rem 1.1rem;
-    box-shadow: 0 4px 14px rgba(39, 68, 92, 0.06);
+    border: 1px solid rgba(39, 68, 92, 0.12);
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 8px 24px rgba(39, 68, 92, 0.06);
     height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.12);
 }
 .feature-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     background: linear-gradient(135deg, var(--primary-light), var(--primary-medium));
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-primary);
-    box-shadow: 0 6px 14px rgba(169, 236, 255, 0.35);
+    box-shadow: 0 6px 16px rgba(169, 236, 255, 0.35);
     flex: 0 0 auto;
 }
 
@@ -429,36 +502,34 @@ body.mini-cart-open {
 /* USP band */
 .usp-band {
     background: #ffffff; /* čisté bílé pozadí – žádná zelená šmouha */
-    padding: clamp(2rem, 5vw, 3rem) 0;
+    padding: clamp(3rem, 6vw, 4.5rem) 0; /* více místa nad i pod kartami */
     border-top: 1px solid rgba(26, 60, 52, 0.08);
     border-bottom: 1px solid rgba(26, 60, 52, 0.08);
 }
 
 .usp-grid {
     display: grid;
-    grid-template-columns: repeat(3, 320px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
     align-items: stretch;
-    grid-auto-rows: 1fr;
-    justify-content: center;
 }
 
-.usp-item { display: flex; gap: 0.85rem; align-items: center; }
+.usp-item { display: flex; gap: 0.9rem; align-items: center; }
 
 .usp-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
     background: linear-gradient(135deg, var(--primary-light), var(--primary-medium));
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-primary);
-    box-shadow: 0 6px 14px rgba(169, 236, 255, 0.35);
+    box-shadow: 0 6px 16px rgba(169, 236, 255, 0.35);
 }
 
-.usp-text h3 { font-size: 1.05rem; margin: 0; }
-.usp-text p { margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.95rem; }
+.usp-text h3 { font-size: 1.06rem; margin: 0; letter-spacing: -0.2px; }
+.usp-text p { margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.96rem; }
 
 /* Quality section */
 .quality { background: #fff; padding: clamp(3rem, 7vw, 4rem) 0; }
@@ -470,14 +541,13 @@ body.mini-cart-open {
     padding: 0;
     margin: 0.25rem 0 0;
     display: grid;
-    grid-template-columns: repeat(3, 320px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
-    justify-content: center;
 }
 .quality-item {
     display: flex;
     align-items: center;
-    gap: 0.85rem;
+    gap: 0.9rem;
 }
 .quality-item p { margin: 0; color: var(--text-secondary); }
 
@@ -490,10 +560,9 @@ body.mini-cart-open {
 
 .shipping__grid {
     display: grid;
-    grid-template-columns: repeat(2, 340px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.25rem;
     align-items: stretch;
-    justify-content: center;
 }
 
 .shipping-card {
@@ -607,13 +676,12 @@ body.mini-cart-open {
 
 /* FOOTER */
 footer {
-    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, var(--primary-medium) 20%, var(--primary-light) 100%);
+    background: linear-gradient(135deg, var(--primary-medium) 0%, var(--primary-light) 100%);
     color: var(--text-primary);
-    padding: 6rem 1rem 2rem; /* víc prostoru nahoře */
+    padding: 4rem 1rem 2rem;
     font-size: 0.95rem;
-    box-shadow: none; /* odstraníme tvrdý stín */
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
     text-align: left;
-    transition: background 0.5s ease;
 }
 
 .footer-container {
@@ -624,7 +692,6 @@ footer {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 2rem;
-    border-bottom: 1px solid rgba(26, 60, 52, 0.15);
 }
 
 .footer-section {
@@ -687,6 +754,20 @@ footer {
     font-size: 0.85rem;
 }
 
+/* Velké obrazovky (Full HD a více) */
+@media (min-width: 1400px) {
+    .container { max-width: 1320px; }
+    .navbar { max-width: 1320px; }
+    .footer-container { max-width: 1320px; }
+    .products-grid { gap: 2.5rem; }
+}
+
+@media (min-width: 1800px) {
+    .container { max-width: 1440px; }
+    .navbar { max-width: 1440px; }
+    .footer-container { max-width: 1440px; }
+}
+
 /* Utility */
 .mt-1 { margin-top: 1rem; }
 .mt-2 { margin-top: 2rem; }
@@ -733,22 +814,9 @@ footer {
     .product-image { height: auto; }
     .section-header h2 { font-size: 1.8rem; }
     .section-header p { font-size: 1rem; }
-}
-
-/* Velké obrazovky (Full HD a více) */
-@media (min-width: 1400px) {
-    .container { max-width: 1320px; }
-    .navbar { max-width: 1320px; }
-    .footer-container { max-width: 1320px; }
-
-    .products-grid { gap: 2.5rem; }
-    .usp-grid { grid-template-columns: repeat(4, 320px); }
-    .quality-list { grid-template-columns: repeat(4, 320px); }
-    .shipping__grid { grid-template-columns: repeat(3, 340px); }
-}
-
-@media (min-width: 1800px) {
-    .container { max-width: 1440px; }
-    .navbar { max-width: 1440px; }
-    .footer-container { max-width: 1440px; }
+    /* Tighten USP & FAQ spacing on small phones */
+    .usp-band { padding: 2.25rem 0; }
+    .faq__list { padding-top: 1rem; }
+    .faq-item summary { padding: 0.9rem 1rem; }
+    .faq__subtitle { margin-bottom: 1.5rem; }
 }
