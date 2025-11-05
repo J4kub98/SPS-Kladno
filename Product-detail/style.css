@@ -39,13 +39,14 @@ body {
     color: var(--text-primary);
     background: #f5f5f5 !important;
     line-height: 1.6;
-    padding: 1rem;
+    /* Bez bočních bílých okrajů na této stránce */
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    overflow-y: auto; /* Jediný scrollbar na stránce */
+    overflow-y: scroll; /* Reserve scrollbar to avoid navbar shift between pages */
 }
 html { scrollbar-gutter: stable both-edges; }
 
