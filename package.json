@@ -3,13 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "export:svg": "node scripts/export-mermaid.js svg",
-    "export:png": "node scripts/export-mermaid.js png",
-    "export:all": "npm run export:svg && npm run export:png"
-  },
-  "devDependencies": {
-    "@mermaid-js/mermaid-cli": "^10.9.1"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

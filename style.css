@@ -1,109 +1,36 @@
-
-/* Moderní hero layout podle vzoru, ale v barvách webu */
-.hero-modern-flex {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    text-align: left;
-    min-height: 70vh;
-    background: none;
-}
-
-.hero-modern-text {
-    flex: 1 1 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1.5rem;
-    min-width: 0;
-}
-
-.hero-modern-image {
-    flex: 1 1 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 0;
-}
-
-.hero-modern-image img {
-    max-width: 370px;
-    width: 100%;
-    height: auto;
-    border-radius: 1.2rem;
-    background: none;
-    border: none;
-    box-shadow: 0 8px 32px rgba(26, 60, 52, 0.10);
-}
-
-@media (max-width: 900px) {
-    .hero-modern-flex {
-        flex-direction: column;
-        text-align: center;
-        gap: 2.5rem;
-    }
-    .hero-modern-text, .hero-modern-image {
-        align-items: center;
-        justify-content: center;
-    }
-    .hero-modern-text {
-        align-items: center;
-    }
-    .hero-modern-image img {
-        margin: 0 auto;
-    }
-}
 /* CSS Custom Properties - sjednocená paleta */
-
 :root {
-    /* Brandové barvy (neměnit) */
     --primary-light: #A9ECFF;    /* Světle modrá */
     --primary-medium: #DBF6ED;   /* Světle zeleno-modrá */
     --primary-dark: #E2FBDE;     /* Světle zelená */
-    --accent-yellow: #FFF7B2;    /* Jemná žlutá */
-    --accent-orange: #FFD59E;    /* Jemná oranžová */
     --text-primary: #27445C;
-    --text-secondary: #5A8DB9;
+    --text-secondary: #5A8DB9;   
     --background: #FFFFFF;       /* Bílá */
-    --light-bg: #f8f9fa;        /* Velmi světlé pozadí */
-
-    /* Pastelové a utility barvy pro vzdušný vzhled */
-    --pastel-blue: #E6F7FB;
-    --pastel-green: #E8FDF3;
-    --pastel-yellow: #FFFBEA;
-    --pastel-pink: #FFEFF6;
-    --pastel-gray: #F5F7FA;
-
-    /* Micro-interakce a stíny */
-    --shadow: 0 4px 16px rgba(26, 60, 52, 0.10);
-    --shadow-hover: 0 8px 32px rgba(26, 60, 52, 0.16);
-    --shadow-card: 0 2px 12px rgba(26, 60, 52, 0.08);
-    --transition: all 0.25s cubic-bezier(.4,2,.3,1);
-    --radius: 16px;
-    --radius-sm: 8px;
-    --radius-lg: 32px;
-    --navbar-height: 72px;
-
-    /* Pro ilustrace a maskoty */
-    --illustration-bg: var(--pastel-blue);
-    --illustration-accent: var(--accent-yellow);
+    --light-bg: #f8f9fa;         /* Velmi světlé pozadí */
+    --shadow: 0 4px 12px rgba(26, 60, 52, 0.1); /* Stín s nádechem zelené */
+    --shadow-hover: 0 8px 24px rgba(26, 60, 52, 0.15); /* zvýrazněný stín pro hover/overlay */
+    --transition: all 0.3s ease;
+    --radius: 8px;
+    --navbar-height: 72px; /* sjednocená výška navbaru napříč webem */
 }
 
+/* Canonical font mapping (match AboutUs/Products):
+   - 'TelkaTRIAL' => Medium
+   - 'TelkaTRIALBold' => Bold */
 @font-face {
     font-family: 'TelkaTRIAL';
-    src: url('Font/TelkaTRIAL-Bold.otf') format('opentype');
-    font-weight: normal;
+    src: url('Font/TelkaTRIAL-Medium.otf') format('opentype');
+    font-weight: 500;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-    font-family: 'TelkaTRIALMedium';
-    src: url('Font/TelkaTRIAL-Medium.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'TelkaTRIALBold';
+    src: url('Font/TelkaTRIAL-Bold.otf') format('opentype');
+    font-weight: 700;
     font-style: normal;
+    font-display: swap;
 }
 
 
@@ -114,16 +41,19 @@
     box-sizing: border-box;
 }
 
-html { scrollbar-gutter: stable both-edges; }
+/* Úprava: odstraněny bílé okraje vznikající rezervací prostoru vlevo i vpravo.
+    Ponecháno jen 'stable', aby se zachovala šířka scrollbaru bez dvojitých "rámečků". */
+/* Remove gutter reservation to eliminate white strip on the right side */
+html { scrollbar-gutter: auto; }
 
 body, html {
-    font-family: 'TelkaTRIALMedium', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* canonical base font */
     color: var(--text-primary);
     background-color: var(--background);
     line-height: 1.6;
     height: 100%;
     overflow-x: hidden;
-    overflow-y: scroll; /* Reserve vertical scrollbar to prevent navbar shift between pages */
+    overflow-y: auto; /* Natural document scrollbar; avoid duplicate scroll areas */
 }
 
 h1, h2, h3, h4 {
@@ -195,7 +125,7 @@ button:hover, .btn:hover {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1320px; /* widen layout on 1080p screens */
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -219,10 +149,12 @@ button:hover, .btn:hover {
 .navbar {
     position: fixed;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 1200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: none;
+    width: calc(100% - 2rem);
+    max-width: calc(1320px - 2rem);
     background-color: rgba(219, 246, 237, 0.5);
     box-shadow: var(--shadow);
     z-index: 1000;
@@ -231,6 +163,7 @@ button:hover, .btn:hover {
     border-radius: 50px;
 }
 
+
 .nav-container {
     /* Grid zarovnání pro konzistentní střed nav odkazů napříč stránkami */
     display: grid;
@@ -238,6 +171,14 @@ button:hover, .btn:hover {
     align-items: center;
     padding: 0 2rem;
     min-height: var(--navbar-height);
+}
+
+/* Match AboutUs navbar font metrics across pages */
+.navbar, .nav-container, .nav-menu, .nav-actions, .nav-cta, .nav-link, .logo {
+    font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* ensure identical stack */
+    font-weight: 600; /* unify weight across pages */
+    font-size: 1rem; /* normalize base size (nav-link overrides to 1.1rem) */
+    letter-spacing: 0; /* remove accidental spacing differences */
 }
 
 .logo {
@@ -256,6 +197,7 @@ button:hover, .btn:hover {
 }
 
 .nav-menu {
+    /* Canonical navbar menu (AboutUs reference) */
     display: flex;
     list-style: none;
     gap: 2rem;
@@ -266,8 +208,9 @@ button:hover, .btn:hover {
 
 /* ZVĚTŠENÍ A ZVÝRAZNĚNÍ TEXTU ODKAZŮ */
 .nav-link {
-    font-size: 1.1rem; /* Zvětšení písma */
-    font-weight: 600;  /* Zvýraznění (tlustší písmo) */
+    font-size: 1.1rem; /* canonical link size */
+    font-weight: 600;
+    line-height: 1.2; /* ensure consistent vertical alignment */
     transition: var(--transition);
     position: relative;
     padding: 0.5rem 0;
@@ -488,17 +431,16 @@ body.mini-cart-open {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Full-page scrolling */
+/* Full-page wrapper simplified: remove internal scroll & snap to avoid extra scrollbar.
+   We allow natural document scrolling (only one vertical scrollbar). */
 #fullpage-wrapper {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+    height: auto;
+    overflow: visible;
+    scroll-snap-type: none;
 }
 
 .fullpage-section {
-    height: 100vh;
-    scroll-snap-align: start;
+    min-height: 100vh; /* keep tall hero feel */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -542,91 +484,12 @@ body.mini-cart-open {
     background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-medium) 100%);
 }
 
-
-/* Nový dvousloupcový hero layout */
-
-/* (vráceno) bez speciálních hero layout pravidel */
-
-
-/* HERO sekce – ultra moderní, čistý styl */
-.hero-content.hero-modern {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    text-align: left;
-    min-height: 70vh;
-    background: none;
-}
-
-.hero-modern-text {
-    flex: 1 1 0;
+.hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 2.2rem;
-    min-width: 0;
-}
-
-.hero-modern-image {
-    flex: 1 1 0;
-    display: flex;
     align-items: center;
-    justify-content: flex-end;
-    min-width: 0;
-}
-
-.hero-modern-image img {
-    max-width: 420px;
-    width: 100%;
-    height: auto;
-    border-radius: 1.2rem;
-    background: none;
-    border: none;
-    box-shadow: none;
-    margin-right: 0;
-}
-
-@media (max-width: 900px) {
-    .hero-content.hero-modern {
-        flex-direction: column;
-        text-align: center;
-        gap: 2.5rem;
-    }
-    .hero-modern-text, .hero-modern-image {
-        align-items: center;
-        justify-content: center;
-    }
-    .hero-modern-text {
-        align-items: center;
-    }
-    .hero-modern-image img {
-        margin: 0 auto;
-    }
-}
-
-/* Minimalistické tlačítko pro hero sekci */
-.hero-cta.hero-modern-btn {
-    background: transparent;
-    color: var(--text-primary);
-    font-size: 1.15rem;
-    padding: 1.1rem 2.5rem;
-    border-radius: 50px;
-    border: 2px solid var(--primary-light);
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    box-shadow: none;
-    transition: all 0.18s cubic-bezier(.4,2,.3,1);
-    position: relative;
-    overflow: hidden;
-}
-.hero-cta.hero-modern-btn:hover {
-    background: var(--primary-light);
-    color: var(--text-primary);
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 2px 12px rgba(169, 236, 255, 0.10);
+    text-align: center;
+    gap: 1.5rem;
 }
 
 .hero-title {
@@ -894,6 +757,28 @@ body.mini-cart-open {
     background: linear-gradient(to bottom, #e8f4fc, #d5e9f7);
 }
 
+/* CTA v nejprodávanějších – výraznější a v duchu tématu */
+.best-sellers .btn.btn-secondary {
+    background: var(--text-primary);
+    color: var(--background);
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.35);
+    display: inline-block; /* ensure transform affects layout */
+    transition: all 0.3s ease; /* smooth lift/shadow */
+    will-change: transform, box-shadow;
+}
+
+.best-sellers .btn.btn-secondary:hover {
+    background: #1c3347;
+    color: #fff;
+    transform: translateY(-2px);
+    /* Match hero primary hover "lift" */
+    box-shadow: 0 18px 42px rgba(39, 68, 92, 0.45);
+}
+
 /* Nová sekce hydratace - UPRAVENÉ BARVY A GRADIENT */
 .hydration-section {
     padding: 5rem 0;
@@ -1128,11 +1013,142 @@ footer {
 .fullpage-section footer {
     width: 100%;
     height: 100%;
+    box-sizing: border-box; /* include footer padding within section height to prevent extra scroll */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+}
+
+/* Remove top gap before footer and align backgrounds with newsletter */
+#section-footer.fullpage-section {
+    padding: 0;                 /* override default 80px top padding */
+    scroll-snap-align: start;   /* keep section-by-section snapping */
+}
+
+/* ===== Enhanced HERO (two-column layout) ===== */
+.hero-inner {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+
+.hero-left { text-align: left; }
+.hero-right { position: relative; width: 100%; }
+
+/* Support current homepage markup: map modern classes to the same layout as .hero-inner */
+.hero-modern-flex {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+}
+.hero-modern-text { text-align: left; }
+.hero-modern-image {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-modern-image img {
+    width: clamp(320px, 32vw, 520px);
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero .hero-title {
+    font-size: clamp(2.8rem, 6vw, 4.75rem);
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+.hero .hero-title span { display: block; }
+.hero .hero-title span:nth-child(1) { color: var(--text-primary); }
+.hero .hero-title span:nth-child(n+2) { color: var(--text-secondary); }
+
+.hero-ctas { display: flex; gap: 1rem; margin-top: 1.25rem; }
+/* stejné zaoblení jako navbar pilulka */
+.hero .btn { border-radius: 50px; padding: 1rem 1.75rem; font-weight: 700; }
+/* Primary (left) — dark filled pill with white text */
+.btn-primary {
+    background: var(--text-primary);
+    color: #fff;
+    border: none;
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.35);
+}
+.btn-primary:hover {
+    background: #1c3347; /* slightly darker on hover */
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 42px rgba(39, 68, 92, 0.45);
+}
+/* Secondary (right) — higher contrast on gradient bg */
+.btn-outline {
+    background: rgba(255, 255, 255, 0.88);
+    border: 2px solid rgba(255, 255, 255, 0.88);
+    color: var(--text-primary);
+    box-shadow: 0 10px 28px rgba(39, 68, 92, 0.15);
+}
+.btn-outline:hover {
+    background: #ffffff;
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(39, 68, 92, 0.2);
+}
+
+.hero-card {
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.15);
+    padding: clamp(1rem, 3vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    width: clamp(320px, 32vw, 520px);
+}
+
+.hero-bottle { width: clamp(160px, 40%, 260px); height: auto; object-fit: contain; }
+
+/* decorative bubble removed per design */
+
+@media (max-width: 992px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-right { order: -1; margin-bottom: 1.5rem; }
+    .hero-left { text-align: center; }
+    .hero-ctas { justify-content: center; }
+    /* Stack for modern hero markup too */
+    .hero-modern-flex { grid-template-columns: 1fr; }
+    .hero-modern-image { order: -1; margin-bottom: 1.5rem; }
+    .hero-modern-text { text-align: center; }
+}
+
+@media (max-width: 768px) {
+    .hero .hero-title { font-size: 2.2rem; }
+}
+
+/* Phone-first overrides for full-page sections and hero CTAs */
+@media (max-width: 768px) {
+    /* Disable scroll snap and 100vh traps on mobile */
+    #fullpage-wrapper { height: auto; overflow-y: visible; scroll-snap-type: none; }
+    .fullpage-section { height: auto; min-height: 0; padding: calc(var(--navbar-height) + 1rem) 0 0; }
+
+    /* Stack hero CTAs, make touch-friendly full-width buttons */
+    .hero-ctas { flex-direction: column; align-items: stretch; gap: 0.75rem; }
+    .hero .btn { width: 100%; text-align: center; }
+
+    /* Constrain hero visual card on small screens */
+    .hero-card { width: min(85vw, 360px); aspect-ratio: 1/1; }
+    .hero-bottle { width: min(48vw, 200px); }
+
+    /* Tighter lifestyle tile height for phones */
+    .lifestyle-item { height: 220px; }
 }
 
 /* Responzivita */
@@ -1290,6 +1306,21 @@ footer {
     .newsletter-form {
         flex-direction: column;
     }
+
+    /* Extra-tight hero on very small screens */
+    .hero .hero-title { font-size: 1.9rem; }
+    .hero-subtitle { font-size: 1rem; }
+}
+
+/* Cart & Checkout responsive layout */
+@media (max-width: 992px) {
+    .cart-container { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .cart-item { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .cart-item-price { text-align: left; }
+    .cart-item-actions { flex-wrap: wrap; gap: 0.75rem; }
+    .form-row { grid-template-columns: 1fr; }
 }
 
 /* Stránky katalogu, detailu, košíku a checkoutu */
@@ -1698,6 +1729,11 @@ footer {
 .mt-3 { margin-top: 3rem; }
 .mt-4 { margin-top: 4rem; }
 .hidden { display: none; }
+
+/* Full-bleed: zjednodušená varianta bez negativních marginů – sekce samy mají 100% šířku,
+   pouze vnitřní .container je omezen max-width. Tím se odstraní horizontální scrollbar
+   na širokých monitorech / různých zoom úrovních. */
+.full-bleed { width: 100%; display: block; }
 
 /* OPRAVA FOOTERU (pro fullpage) */
 .fullpage-section footer {

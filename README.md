@@ -161,3 +161,40 @@ DRIVE_SERVER/
 ```
 
 Pokud budete potřebovat doplnit další části (např. build skripty, CI/CD, Docker), napište a přidáme je.
+
+---
+
+## Alternativa: spusťte web přes Python (bez Node.js)
+
+Pokud v síti školy není možné instalovat Node.js, v repozitáři je jednoduchý Python server `python_server.py`, který:
+
+- v režimu `minimal` (výchozí) používá pouze standardní knihovnu Pythonu a servíruje statické soubory + lehké `/api` endpointy potřebné pro frontend (produkty, košík, checkout).
+- v režimu `flask` spustí obdobu Express API pomocí Flasku (vyžaduje instalaci Flask).
+
+Spuštění (PowerShell):
+
+```powershell
+# minimal (žádné další balíčky nutné)
+python .\python_server.py
+
+# nastavit port např. 4000
+$env:PORT=4000; python .\python_server.py
+
+# flask režim (po nainstalování Flask)
+$env:PY_MODE="flask"; python .\python_server.py
+```
+
+Instalace Flask (volitelné, doporučeno v izolovaném venvu):
+
+```powershell
+# vytvoř a aktivuj virtuální prostředí (PowerShell)
+python -m venv .venv
+.\\.venv\\Scripts\\Activate.ps1
+# nainstaluj požadavky
+pip install -r requirements.txt
+```
+
+Poznámky:
+- Databáze se uloží do `data/site.db` a skript ji seedne, pokud chybí.
+- Minimal režim implementuje základní API (produkty, produkt detail, košík CRUD, checkout) potřebné pro frontend. Některé administrativní/auth endpointy mohou vracet 501 v tomto režimu.
+- Doma můžete nadále používat Node/Express (`npm start`) — Python server je jen fallback pro prostředí bez Node.

@@ -4,6 +4,7 @@
     src: url('../Font/TelkaTRIAL-Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -11,6 +12,7 @@
     src: url('../Font/TelkaTRIAL-Medium.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 /* CSS Custom Properties */
@@ -81,7 +83,8 @@ button:hover, .btn:hover {
     box-sizing: border-box;
 }
 
-html { scrollbar-gutter: stable both-edges; }
+/* Remove gutter reservation to avoid right white strip */
+html { scrollbar-gutter: auto; }
 
 body, html {
     font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -89,7 +92,7 @@ body, html {
     background-color: var(--background);
     line-height: 1.6;
     overflow-x: hidden;
-    overflow-y: auto; /* Jediný scrollbar na stránce */
+    overflow-y: auto; /* Use natural scrollbar to avoid duplicates */
 }
 
 h1, h2, h3, h4 {
@@ -114,7 +117,7 @@ h3 {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1320px; /* widen for large screens */
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -226,10 +229,12 @@ body.mini-cart-open {
 .navbar {
     position: fixed;
     top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 1200px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: none;
+    width: calc(100% - 2rem);
+    max-width: calc(1320px - 2rem);
     background-color: rgba(219, 246, 237, 0.5);
     box-shadow: var(--shadow);
     z-index: 1000;
@@ -250,6 +255,10 @@ body.mini-cart-open {
 /* Fontová shoda s Products – zajistí stejnou metriku textu v navbaru */
 .navbar, .nav-container, .nav-menu, .nav-actions, .nav-cta, .nav-link, .logo {
     font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Match Home/Products nav metrics for pixel parity */
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0;
 }
 
 .logo {

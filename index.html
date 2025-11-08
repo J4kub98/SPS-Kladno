@@ -47,14 +47,23 @@
 
     <main id="fullpage-wrapper">
         <section id="home" class="fullpage-section hero">
-            <div class="container hero-modern-flex">
-                <div class="hero-modern-text">
-                    <h1 class="hero-title">Energie a hydratace v každém doušku</h1>
-                    <p class="hero-subtitle">Objevte naši <b>kofeinovou vodu</b> s přírodními příchutěmi. Bez cukru, nízkokalorická, plná energie pro každý den.</p>
-                    <a href="/Products/index.html" class="btn hero-cta hero-modern-btn" data-page="catalog">Objevovat produkty</a>
+            <div class="container hero-inner">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        <span>Pure Energy.</span>
+                        <span>Maximum</span>
+                        <span>Hydration.</span>
+                    </h1>
+                    <p class="hero-subtitle">DRIVE. is your daily dose of natural refreshment and focus. Clean caffeine from green tea combined with pure hydration — no sugar, no artificial ingredients, just pure energy.</p>
+                    <div class="hero-ctas">
+                        <a href="/Products/index.html" class="btn btn-primary" data-page="catalog">Shop DRIVE.</a>
+                        <a href="#section-benefits" class="btn btn-outline">Learn More</a>
+                    </div>
                 </div>
-                <div class="hero-modern-image">
-                    <img src="Products/voda.png" alt="Kofeinová voda" />
+                <div class="hero-right">
+                    <div class="hero-card">
+                        <img src="Products/voda.png" alt="DRIVE bottle" class="hero-bottle">
+                    </div>
                 </div>
             </div>
         </section>
@@ -201,7 +210,7 @@
             </div>
         </section>
         
-        <section class="fullpage-section section">
+        <section class="fullpage-section section" id="section-footer">
             <footer>
                 <div class="footer-container">
                     <div class="footer-section footer-info">
@@ -242,69 +251,8 @@
                     <p>&copy; 2024 Drive. Všechna práva vyhrazena.</p>
                 </div>
             </footer>
-        </section>
-        
-        <section class="page" id="catalog">
-            <div class="container">
-                <h1>Naše produkty</h1>
-                <div class="catalog-container">
-                    <div class="filters">
-                        <div class="filter-group">
-                            <h3 class="filter-title">Cena</h3>
-                            <input type="range" class="price-range" min="0" max="200" value="200" id="priceRange">
-                            <div class="price-values">
-                                <span>0 Kč</span>
-                                <span id="priceRangeValue">200 Kč</span>
-                            </div>
-                        </div>
-                        <div class="filter-group">
-                            <h3 class="filter-title">Příchuť</h3>
-                            <ul class="filter-options">
-                                <li class="filter-option">
-                                    <input type="checkbox" id="flavor-lemon" value="lemon" checked>
-                                    <label for="flavor-lemon">Citrón</label>
-                                </li>
-                                <li class="filter-option">
-                                    <input type="checkbox" id="flavor-berry" value="berry" checked>
-                                    <label for="flavor-berry">Lesní ovoce</label>
-                                </li>
-                                <li class="filter-option">
-                                    <input type="checkbox" id="flavor-mint" value="mint" checked>
-                                    <label for="flavor-mint">Máta</label>
-                                </li>
-                                <li class="filter-option">
-                                    <input type="checkbox" id="flavor-lime" value="lime" checked>
-                                    <label for="flavor-lime">Limetka</label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="filter-group">
-                            <h3 class="filter-title">Obsah kofeinu</h3>
-                            <ul class="filter-options">
-                                <li class="filter-option">
-                                    <input type="checkbox" id="caffeine-low" value="low" checked>
-                                    <label for="caffeine-low">Nízký (30mg)</label>
-                                </li>
-                                <li class="filter-option">
-                                    <input type="checkbox" id="caffeine-medium" value="medium" checked>
-                                    <label for="caffeine-medium">Střední (50mg)</label>
-                                </li>
-                                <li class="filter-option">
-                                    <input type="checkbox" id="caffeine-high" value="high" checked>
-                                    <label for="caffeine-high">Vysoký (100mg)</label>
-                                </li>
-                            </ul>
-                        </div>
-                        <button class="btn" id="applyFilters">Použít filtry</button>
-                    </div>
-                    <div class="products-container">
-                        <div class="products-grid" id="productsGrid">
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
+    </section>
+
         <section class="page" id="productDetail">
             <div class="container">
                 <button class="btn btn-secondary" onclick="showPage('catalog')">Zpět na produkty</button>

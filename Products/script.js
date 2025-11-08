@@ -206,4 +206,113 @@ document.addEventListener('DOMContentLoaded', () => {
             newsletterForm.reset();
         });
     }
+
+    // FAQ – smooth accordion with single-open and stable section height
+    const faqList = document.querySelector('.faq__list');
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    function animateOpen(item) {
+        const content = item.querySelector('.faq-answer');
+        if (!content) return;
+        // prepare
+        content.style.paddingBottom = '0px';
+        content.style.height = '0px';
+        content.style.opacity = '0';
+        // force reflow
+        void content.offsetHeight;
+        const target = content.scrollHeight;
+        content.style.height = target + 'px';
+        content.style.paddingBottom = '1.2rem';
+        content.style.opacity = '1';
+        const onEnd = (e) => {
+            if (e.propertyName === 'height') {
+                content.style.height = 'auto';
+                content.removeEventListener('transitionend', onEnd);
+            }
+        };
+        content.addEventListener('transitionend', onEnd);
+    }
+
+    function animateClose(item, cb) {
+        const content = item.querySelector('.faq-answer');
+        if (!content) { if (cb) cb(); return; }
+        const current = content.scrollHeight;
+        content.style.height = current + 'px';
+        // force reflow
+        void content.offsetHeight;
+        content.style.height = '0px';
+        content.style.paddingBottom = '0px';
+        content.style.opacity = '0';
+        const onEnd = (e) => {
+            if (e.propertyName === 'height') {
+                content.removeEventListener('transitionend', onEnd);
+                if (cb) cb();
+            }
+        }
+        content.addEventListener('transitionend', onEnd);
+    }
+
+    function reserveListMinHeight() {
+        if (!faqList || !faqItems.length) return;
+        // remember open state
+        const openIndex = Array.from(faqItems).findIndex(i => i.open);
+        const closeAll = () => faqItems.forEach(i => i.open = false);
+        closeAll();
+        // base height with all collapsed
+        const base = faqList.scrollHeight;
+        let maxHeight = base;
+        faqItems.forEach((i) => {
+            i.open = true;
+            const a = i.querySelector('.faq-answer');
+            if (a) a.style.height = 'auto';
+            const h = faqList.scrollHeight;
+            if (h > maxHeight) maxHeight = h;
+            i.open = false;
+            if (a) a.style.height = '0px';
+        });
+        faqList.style.minHeight = maxHeight + 'px';
+        // restore originally open
+        if (openIndex >= 0) {
+            const i = faqItems[openIndex];
+            i.open = true;
+            const a = i.querySelector('.faq-answer');
+            if (a) a.style.height = 'auto';
+        }
+    }
+
+    if (faqItems.length) {
+        // initialize reserve height
+        reserveListMinHeight();
+
+        faqItems.forEach((item) => {
+            const summary = item.querySelector('summary');
+            const answer = item.querySelector('.faq-answer');
+            if (item.open && answer) {
+                // set opened item to auto height initially
+                answer.style.height = 'auto';
+                answer.style.paddingBottom = '1.2rem';
+                answer.style.opacity = '1';
+            }
+            if (summary) {
+                summary.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const willOpen = !item.open;
+                    if (willOpen) {
+                        // close others smoothly first
+                        faqItems.forEach((other) => {
+                            if (other !== item && other.open) {
+                                animateClose(other, () => { other.open = false; });
+                            }
+                        });
+                        item.open = true; // for chevron state
+                        animateOpen(item);
+                    } else {
+                        // closing current
+                        animateClose(item, () => { item.open = false; });
+                    }
+                });
+            }
+        });
+        window.addEventListener('resize', () => reserveListMinHeight());
+    }
 });
