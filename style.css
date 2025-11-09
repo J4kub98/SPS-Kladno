@@ -51,13 +51,13 @@ html { scrollbar-gutter: auto; }
 html.home {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory; /* one snap per vertical section */
-    scroll-padding-top: calc(var(--navbar-height) + 24px); /* space for fixed navbar */
+    scroll-padding-top: var(--navbar-height); /* align snapped section just under fixed navbar */
 }
 /* Some browsers apply snapping on body scroll container; mirror settings on body as well */
 body.home {
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: calc(var(--navbar-height) + 24px);
+    scroll-padding-top: var(--navbar-height);
 }
 
 body, html {
@@ -454,16 +454,19 @@ body.mini-cart-open {
 }
 
 .home .fullpage-section {
-    /* Each section fills the visible screen area below the fixed navbar */
-    min-height: calc(100dvh - (var(--navbar-height) + 24px));
+    /* Each section fills the full viewport; padding is included (no extra height) */
+    height: 100dvh;
+    min-height: 100dvh;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* center section content vertically */
     align-items: center;
-    /* Push content below the navbar while keeping overall block at full viewport height */
-    padding: calc(var(--navbar-height) + 24px) 0 0;
+    /* Place content below the fixed navbar but keep total section height exactly 100dvh */
+    padding: var(--navbar-height) 0 0;
     scroll-snap-align: start;
     scroll-snap-stop: always;
+    overflow: clip; /* prevent tiny bleed into next section */
 }
 
 /* --- Homepage fullpage overrides to remove extra gaps from section-specific paddings --- */
@@ -471,7 +474,7 @@ body.mini-cart-open {
 .home .fullpage-section.newsletter,
 .home .fullpage-section.best-sellers {
     /* Neutralize section-specific vertical paddings that add gaps */
-    padding-top: calc(var(--navbar-height) + 24px) !important; /* ensure consistent top offset under navbar */
+    padding-top: var(--navbar-height) !important; /* ensure consistent top offset under navbar */
     padding-bottom: 0 !important;
     padding-left: 0;
     padding-right: 0;
@@ -488,7 +491,7 @@ body.mini-cart-open {
 
 /* Ensure hero also uses the unified top offset under navbar */
 .home .fullpage-section.hero {
-    padding-top: calc(var(--navbar-height) + 24px) !important;
+    padding-top: var(--navbar-height) !important;
 }
 
 /* Animace úvodu */
