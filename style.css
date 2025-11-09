@@ -177,6 +177,11 @@ button:hover, .btn:hover {
     border-radius: 50px;
 }
 
+/* On homepage, dock navbar to the very top to maximize section area */
+.home .navbar {
+    top: 0;
+}
+
 
 .nav-container {
     /* Grid zarovnání pro konzistentní střed nav odkazů napříč stránkami */
