@@ -471,6 +471,7 @@ body.mini-cart-open {
 .home .fullpage-section.newsletter,
 .home .fullpage-section.best-sellers {
     /* Neutralize section-specific vertical paddings that add gaps */
+    padding-top: calc(var(--navbar-height) + 24px) !important; /* ensure consistent top offset under navbar */
     padding-bottom: 0 !important;
     padding-left: 0;
     padding-right: 0;
@@ -479,6 +480,15 @@ body.mini-cart-open {
 /* Ensure containers inside fullpage sections don't introduce extra top spacing */
 .home .fullpage-section .container {
     padding-top: 0;
+}
+
+/* Remove stray margins at section boundaries to avoid visual gaps */
+.home .fullpage-section .container > *:first-child { margin-top: 0; }
+.home .fullpage-section .container > *:last-child { margin-bottom: 0; }
+
+/* Ensure hero also uses the unified top offset under navbar */
+.home .fullpage-section.hero {
+    padding-top: calc(var(--navbar-height) + 24px) !important;
 }
 
 /* Animace úvodu */
