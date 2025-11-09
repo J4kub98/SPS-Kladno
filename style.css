@@ -46,6 +46,14 @@
 /* Remove gutter reservation to eliminate white strip on the right side */
 html { scrollbar-gutter: auto; }
 
+/* Enable section-by-section scrolling (viewport as the scroll container) */
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory; /* one snap per vertical section */
+    /* offset for fixed navbar (height + top gap) so snapped sections are fully visible */
+    scroll-padding-top: calc(var(--navbar-height) + 24px);
+}
+
 body, html {
     font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* canonical base font */
     color: var(--text-primary);
@@ -434,18 +442,21 @@ body.mini-cart-open {
 /* Full-page wrapper simplified: remove internal scroll & snap to avoid extra scrollbar.
    We allow natural document scrolling (only one vertical scrollbar). */
 #fullpage-wrapper {
+    /* Use the viewport (html/body) as the only scrollbar; no inner scroll area here */
     height: auto;
     overflow: visible;
-    scroll-snap-type: none;
 }
 
 .fullpage-section {
-    min-height: 100vh; /* keep tall hero feel */
+    /* Each section fills the screen and snaps to the start */
+    min-height: 100svh; /* include mobile safe viewport */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 0 0; /* prostor pro navbar */
+    padding: 80px 0 0; /* space for fixed navbar */
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
 
 /* Animace úvodu */
@@ -1135,8 +1146,9 @@ footer {
 
 /* Phone-first overrides for full-page sections and hero CTAs */
 @media (max-width: 768px) {
-    /* Disable scroll snap and 100vh traps on mobile */
-    #fullpage-wrapper { height: auto; overflow-y: visible; scroll-snap-type: none; }
+    /* Disable scroll snap on small screens for natural touch scrolling */
+    html { scroll-snap-type: none; scroll-padding-top: 0; }
+    #fullpage-wrapper { height: auto; overflow-y: visible; }
     .fullpage-section { height: auto; min-height: 0; padding: calc(var(--navbar-height) + 1rem) 0 0; }
 
     /* Stack hero CTAs, make touch-friendly full-width buttons */
