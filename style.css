@@ -53,6 +53,12 @@ html.home {
     scroll-snap-type: y mandatory; /* one snap per vertical section */
     scroll-padding-top: calc(var(--navbar-height) + 24px); /* space for fixed navbar */
 }
+/* Some browsers apply snapping on body scroll container; mirror settings on body as well */
+body.home {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: calc(var(--navbar-height) + 24px);
+}
 
 body, html {
     font-family: 'TelkaTRIAL', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* canonical base font */
@@ -1148,6 +1154,7 @@ footer {
 @media (max-width: 768px) {
     /* Disable scroll snap on small screens for natural touch scrolling (homepage only) */
     html.home { scroll-snap-type: none; scroll-padding-top: 0; }
+    body.home { scroll-snap-type: none; scroll-padding-top: 0; }
     #fullpage-wrapper { height: auto; overflow-y: visible; }
     .home .fullpage-section { height: auto; min-height: 0; padding: calc(var(--navbar-height) + 1rem) 0 0; }
 
