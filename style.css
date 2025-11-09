@@ -454,13 +454,14 @@ body.mini-cart-open {
 }
 
 .home .fullpage-section {
-    /* Each section fills the screen and snaps to the start */
-    min-height: 100svh; /* include mobile safe viewport */
+    /* Each section fills the visible screen area below the fixed navbar */
+    min-height: calc(100dvh - (var(--navbar-height) + 24px));
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 0 0; /* space for fixed navbar */
+    /* Push content below the navbar while keeping overall block at full viewport height */
+    padding: calc(var(--navbar-height) + 24px) 0 0;
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
