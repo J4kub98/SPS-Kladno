@@ -466,6 +466,21 @@ body.mini-cart-open {
     scroll-snap-stop: always;
 }
 
+/* --- Homepage fullpage overrides to remove extra gaps from section-specific paddings --- */
+.home .fullpage-section.section,
+.home .fullpage-section.newsletter,
+.home .fullpage-section.best-sellers {
+    /* Neutralize section-specific vertical paddings that add gaps */
+    padding-bottom: 0 !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Ensure containers inside fullpage sections don't introduce extra top spacing */
+.home .fullpage-section .container {
+    padding-top: 0;
+}
+
 /* Animace úvodu */
 .hero-content h1,
 .hero-content p,
